@@ -4,6 +4,9 @@ FROM eclipse-temurin:22-jdk AS build
 # Set the working directory inside the container
 WORKDIR /app
 
+# Install Maven (since it's not available by default)
+RUN apt-get update && apt-get install -y maven
+
 # Copy your Maven POM file into the container (it holds all dependencies)
 COPY pom.xml .
 
