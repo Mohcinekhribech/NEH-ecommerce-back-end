@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/orders")
+@RequestMapping("/api/orders")
 public class OrderController extends CrudController<OrderDtoRequest , OrderDtoResponse , UUID , OrderServiceInterface> {
     public OrderController(OrderServiceInterface orderServiceInterface, ResponseMessage responseMessage) {
         super(orderServiceInterface, responseMessage);

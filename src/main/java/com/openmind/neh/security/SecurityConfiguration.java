@@ -34,14 +34,16 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(req ->
                         req.requestMatchers(HttpMethod.GET, "/**") // Allow all GET requests
                                 .permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/auth/register-admin", "/api/auth/register-client", "/api/auth/logout" , "/api/auth/authenticate" , "/api/upload/images") // Allow these specific POST requests for all users
+                                .requestMatchers(HttpMethod.POST, "/api/auth/**", "/api/upload/images") // Allow these specific POST requests for all users
                                 .permitAll()
                                 .requestMatchers(HttpMethod.POST, "/api/orders", "/api/orders/payment-status") // Allow POST for creating orders
                                 .hasAnyAuthority(Role.Client.name(), Role.Admin.name())
+                                .requestMatchers(HttpMethod.POST, "/api/category","/api/product","/api/product-media","/api/tags") // Allow POST requests only for admin
+                                .hasAuthority(Role.Admin.name())
                                 .requestMatchers(HttpMethod.PUT, "/**") // Allow PUT requests only for admin
-                                .hasAuthority("Admin")
+                                .hasAuthority(Role.Admin.name())
                                 .requestMatchers(HttpMethod.DELETE, "/**") // Allow DELETE requests only for admin
-                                .hasAuthority("Admin")
+                                .hasAuthority(Role.Admin.name())
                                 .anyRequest() // Any other request needs to be authenticated
                                 .authenticated()
                 )

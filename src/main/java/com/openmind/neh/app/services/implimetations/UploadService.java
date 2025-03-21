@@ -1,5 +1,6 @@
 package com.openmind.neh.app.services.implimetations;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,7 +16,8 @@ import java.util.UUID;
 @Service
 public class UploadService {
 
-    private final String uploadDirectory = "uploads/";
+    @Value("${file.upload-dir}")
+    private String uploadDirectory;
 
     public List<String> uploadImages(List<MultipartFile> files) throws IOException {
         List<String> filenames = new ArrayList<>();

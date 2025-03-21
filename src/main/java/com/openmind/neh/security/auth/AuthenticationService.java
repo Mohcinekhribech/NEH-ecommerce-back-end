@@ -54,6 +54,7 @@ public class AuthenticationService {
         admin.setAddress(request.getAddress());
         admin.setCity(request.getCity());
         admin.setZipCode(request.getZipCode());
+        admin.setRole(Role.Admin);
         admin.setCountry(request.getCountry());
 
         User savedUser = adminRepository.save(admin);

@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/product-media")
+@RequestMapping("/api/product-media")
 public class ProductMediaController extends CrudController<ProductMediaDtoRequest , ProductMediaDtoResponse , UUID , ProductMediaServiceInterface> {
     public ProductMediaController(ProductMediaServiceInterface productMediaServiceInterface, ResponseMessage responseMessage) {
         super(productMediaServiceInterface, responseMessage);

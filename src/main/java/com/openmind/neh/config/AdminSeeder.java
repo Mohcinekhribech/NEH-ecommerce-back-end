@@ -3,6 +3,7 @@ package com.openmind.neh.config;
 import com.openmind.neh.app.dtos.request.AdminDtoRequest;
 import com.openmind.neh.app.entities.enums.AgeRange;
 import com.openmind.neh.security.User.DTOs.UserRequest;
+import com.openmind.neh.security.User.Role;
 import com.openmind.neh.security.User.UserRepository;
 import com.openmind.neh.security.auth.AuthenticationResponse;
 import com.openmind.neh.security.auth.AuthenticationService;

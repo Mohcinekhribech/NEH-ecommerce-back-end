@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/category")
+@RequestMapping("/api/category")
 public class CategoryController extends CrudController<CategoryDtoRequest , CategoryDtoResponse , UUID , CategoryServiceInterface> {
     public CategoryController(CategoryServiceInterface categoryServiceInterface, ResponseMessage responseMessage) {
         super(categoryServiceInterface, responseMessage);

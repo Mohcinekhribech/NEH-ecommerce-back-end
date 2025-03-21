@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 @RestController
-@RequestMapping("api/product")
+@RequestMapping("/api/product")
 public class ProductController extends CrudController<ProductDtoRequest, ProductDtoResponse , UUID , ProductServiceInterface > {
     public ProductController(ProductServiceInterface productServiceInterface, ResponseMessage responseMessage) {
         super(productServiceInterface, responseMessage);
