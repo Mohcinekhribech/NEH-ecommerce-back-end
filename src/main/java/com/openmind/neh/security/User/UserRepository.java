@@ -12,12 +12,4 @@ import java.util.UUID;
 public interface UserRepository extends JpaRepository<User, UUID> {
 
     Optional<User> findByEmail(String email);
-    @Query("SELECT COUNT(u) FROM User u WHERE u.dateOfCreation >= :date")
-    int countNewCustomersForPeriod(LocalDateTime date);
-
-    @Query("SELECT COUNT(u) FROM User u")
-    int countNewCustomers();
-
-
-
 }

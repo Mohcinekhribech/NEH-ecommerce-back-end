@@ -1,6 +1,7 @@
 package com.openmind.neh.app.services.implimetations;
 
 import com.openmind.neh.app.dtos.response.DashboardStatsDto;
+import com.openmind.neh.app.repositories.ClientRepository;
 import com.openmind.neh.app.repositories.OrderRepository;
 import com.openmind.neh.app.services.interfaces.DashboardServiceInterface;
 import com.openmind.neh.security.User.UserRepository;
@@ -15,7 +16,7 @@ import java.time.temporal.ChronoUnit;
 public class DashboardService implements DashboardServiceInterface {
 
     private final OrderRepository orderRepository;
-    private final UserRepository userRepository;
+    private final ClientRepository clientRepository;
 
     @Override
     public DashboardStatsDto getDashboardStats() {
@@ -32,8 +33,8 @@ public class DashboardService implements DashboardServiceInterface {
         double ordersChange = (previousOrders == 0) ? 0 : ((totalOrders - previousOrders) / (double) previousOrders) * 100;
 
         // New Customers
-        int newCustomers = userRepository.countNewCustomers();
-        int previousNewCustomers = userRepository.countNewCustomersForPeriod(LocalDateTime.now().minus(30, ChronoUnit.DAYS));
+        int newCustomers = clientRepository.countNewCustomers();
+        int previousNewCustomers = clientRepository.countNewCustomersForPeriod(LocalDateTime.now().minus(30, ChronoUnit.DAYS));
         double customersChange = (previousNewCustomers == 0) ? 0 : ((newCustomers - previousNewCustomers) / (double) previousNewCustomers) * 100;
 
         // Conversion Rate
