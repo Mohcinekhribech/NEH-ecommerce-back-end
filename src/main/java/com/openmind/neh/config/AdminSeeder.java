@@ -28,8 +28,8 @@ public class AdminSeeder implements CommandLineRunner {
             AdminDtoRequest request = AdminDtoRequest.builder()
                     .firstName("Admin")
                     .lastName("User")
-                    .email("admin@neh.com")
-                    .profilePic("profile_pic_url")  // Placeholder URL for the profile pic
+                    .email("contact@neh-cosmetics.com")
+                    .profilePic("pr")  // Placeholder URL for the profile pic
                     .ageRange(AgeRange.AGE_18_24)              // Example age range
                     .password("neh-openmind@2025")      // Secure password should be handled properly
                     .build();
