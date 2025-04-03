@@ -23,7 +23,7 @@ public class AdminSeeder implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // Check if the admin already exists
-        if (adminRepository.findByEmail("admin@neh.com").isEmpty()) {
+        if (adminRepository.findByEmail("contact@neh-cosmetics.com").isEmpty()) {
             // Prepare AdminDtoRequest for seeding
             AdminDtoRequest request = AdminDtoRequest.builder()
                     .firstName("Admin")
