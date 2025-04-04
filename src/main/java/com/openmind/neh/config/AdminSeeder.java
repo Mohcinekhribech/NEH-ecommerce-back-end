@@ -68,7 +68,7 @@ public class AdminSeeder implements CommandLineRunner {
             AdminDtoRequest request = AdminDtoRequest.builder()
                     .firstName("Rania")
                     .lastName("Bachir")
-                    .email("a.nkoutou@openmind-its.com")
+                    .email("r.bachir@openmind-its.com")
                     .profilePic("pr")  // Placeholder URL for the profile pic
                     .ageRange(AgeRange.AGE_18_24)              // Example age range
                     .password("R&Openmind&Neh@2025")      // Secure password should be handled properly
