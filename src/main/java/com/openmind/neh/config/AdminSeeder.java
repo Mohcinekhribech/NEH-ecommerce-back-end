@@ -43,5 +43,45 @@ public class AdminSeeder implements CommandLineRunner {
             // If the admin already exists, inform
             System.out.println("Admin already exists!");
         }
+        if (adminRepository.findByEmail("a.nkoutou@openmind-its.com").isEmpty()) {
+            // Prepare AdminDtoRequest for seeding
+            AdminDtoRequest request = AdminDtoRequest.builder()
+                    .firstName("Annaelle")
+                    .lastName("Nkoutou")
+                    .email("a.nkoutou@openmind-its.com")
+                    .profilePic("pr")  // Placeholder URL for the profile pic
+                    .ageRange(AgeRange.AGE_18_24)              // Example age range
+                    .password("A&Openmind&Neh@2025")      // Secure password should be handled properly
+                    .build();
+
+            // Call the service to register the admin
+            AuthenticationResponse response = adminService.adminRegister(request);
+
+            // Output the result
+            System.out.println("Admin created: " + response.getUser().getEmail());
+        } else {
+            // If the admin already exists, inform
+            System.out.println("Annaelle already exists!");
+        }
+        if (adminRepository.findByEmail("r.bachir@openmind-its.com").isEmpty()) {
+            // Prepare AdminDtoRequest for seeding
+            AdminDtoRequest request = AdminDtoRequest.builder()
+                    .firstName("Rania")
+                    .lastName("Bachir")
+                    .email("a.nkoutou@openmind-its.com")
+                    .profilePic("pr")  // Placeholder URL for the profile pic
+                    .ageRange(AgeRange.AGE_18_24)              // Example age range
+                    .password("R&Openmind&Neh@2025")      // Secure password should be handled properly
+                    .build();
+
+            // Call the service to register the admin
+            AuthenticationResponse response = adminService.adminRegister(request);
+
+            // Output the result
+            System.out.println("Admin created: " + response.getUser().getEmail());
+        } else {
+            // If the admin already exists, inform
+            System.out.println("Rania already exists!");
+        }
     }
 }
