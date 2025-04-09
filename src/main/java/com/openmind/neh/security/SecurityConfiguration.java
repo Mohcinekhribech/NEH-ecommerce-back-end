@@ -32,7 +32,7 @@ public class SecurityConfiguration {
         http.cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req ->
-                        req.requestMatchers(HttpMethod.GET, "/**") // Allow all GET requests
+                         req.requestMatchers(HttpMethod.GET, "/**") // Allow all GET requests
                                 .permitAll()
                                 .requestMatchers(HttpMethod.POST, "/api/auth/**", "/api/upload/images") // Allow these specific POST requests for all users
                                 .permitAll()
