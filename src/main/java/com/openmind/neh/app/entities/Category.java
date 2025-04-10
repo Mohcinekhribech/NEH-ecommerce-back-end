@@ -1,6 +1,8 @@
 package com.openmind.neh.app.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +18,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String name;
+    @Size(max = 2000, message = "La description ne peut pas dépasser 2000 caractères")
     private String description;
     private String image;
     @OneToMany(mappedBy = "category",cascade = CascadeType.ALL, orphanRemoval = true)

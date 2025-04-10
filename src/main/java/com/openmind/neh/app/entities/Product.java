@@ -1,6 +1,8 @@
 package com.openmind.neh.app.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,8 +18,11 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String name;
+    @Size(max = 2000, message = "La description ne peut pas dépasser 2000 caractères")
     private String description;
+    @Size(max = 2000, message = "La benefits ne peut pas dépasser 2000 caractères")
     private String benefits;
+    @Size(max = 2000, message = "La howToUse ne peut pas dépasser 2000 caractères")
     private String howToUse;
     private Double purchasePrice;
     private Double finalPrice;
