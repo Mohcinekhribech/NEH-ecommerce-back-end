@@ -70,4 +70,6 @@ public class OrderDtoRequest {
 
     @NotEmpty(message = "At least one ordered product is required")
     private List<OrderedProductDtoRequest> orderedProducts;
+
+    private String promoCode;
 }

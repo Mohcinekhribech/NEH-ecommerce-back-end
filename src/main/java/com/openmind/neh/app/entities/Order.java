@@ -3,6 +3,7 @@ package com.openmind.neh.app.entities;
 import com.openmind.neh.app.entities.enums.OrderStatus;
 import com.openmind.neh.app.entities.enums.PaymentMethod;
 import com.openmind.neh.app.entities.enums.PaymentStatus;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -47,4 +48,15 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     private LocalDateTime createdAt;
+
+    @Nullable
+    @ManyToOne
+    @JoinColumn(name = "promo_code_id")
+    private PromoCode promoCode;
+    
+    @Column
+    private Double discountAmount;
+    
+    @Column
+    private Double finalAmount;
 }
